@@ -170,6 +170,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.tetheroffload-V1-service.rc
 
+# Charging
+PRODUCT_PACKAGES += \
+    init.batterysecret.rc
 
 # ?
 PRODUCT_PACKAGES += \

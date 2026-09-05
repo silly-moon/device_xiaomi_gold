@@ -122,3 +122,10 @@ prebuilt_etc {
     relative_install_path: "init/hw",
     vendor: true,
 }
+
+prebuilt_etc {
+    name: "init.batterysecret.rc",
+    src: "init.batterysecret.rc",
+    sub_dir: "init/hw",
+    vendor: true,
+}

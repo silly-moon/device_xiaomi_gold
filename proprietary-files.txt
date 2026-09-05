@@ -2061,3 +2061,6 @@ vendor/firmware/txpowerctrl.cfg
 vendor/firmware/wifi.cfg
 vendor/firmware/WIFI_RAM_CODE_soc2_2_1a_1.bin
 vendor/firmware/WIFI_RAM_CODE_soc2_2_1_1.bin
+
+# Charging (Mi Turbo)
+vendor/bin/batterysecret

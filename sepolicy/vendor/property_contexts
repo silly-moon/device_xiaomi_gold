@@ -7,3 +7,6 @@ persist.vendor.sys.fp. u:object_r:vendor_gold_fingerprint_prop:s0 prefix string
 
 # Modem identity published by rild.
 ro.vendor.oem.meid u:object_r:vendor_mtk_radio_prop:s0 exact string
+
+# Charging
+persist.vendor.accelerate.charge    u:object_r:vendor_accelerate_charge_prop:s0 exact string
