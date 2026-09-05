@@ -4,6 +4,7 @@ on early-init
 
 on init
     setprop sys.usb.controller "musb-hdrc"
+    setprop vendor.usb.controller "musb-hdrc"
 
 on post-fs
     setprop vendor.usb.vid "0x0E8D"
@@ -27,6 +28,7 @@ on post-fs
     mkdir /config/usb_gadget/g1/functions/rndis.gs4
     mkdir /config/usb_gadget/g1/functions/midi.gs5
     mkdir /config/usb_gadget/g1/functions/ncm.gs6
+    mkdir /config/usb_gadget/g1/functions/ncm.gs9
     mkdir /config/usb_gadget/g1/functions/acm.gs0
     mkdir /config/usb_gadget/g1/functions/acm.gs1
     mkdir /config/usb_gadget/g1/functions/acm.gs2
@@ -44,9 +46,26 @@ on post-fs
     mkdir /dev/usb-ffs/ptp 0770 mtp mtp
     mount functionfs mtp /dev/usb-ffs/mtp rmode=0770,fmode=0660,uid=1024,gid=1024,no_disconnect=1
     mount functionfs ptp /dev/usb-ffs/ptp rmode=0770,fmode=0660,uid=1024,gid=1024,no_disconnect=1
+    setprop sys.usb.mtp.device_type 3
+    setprop vendor.usb.rndis.config rndis.gs4
+
+    chown system system /config/usb_gadget
+    chown system system /config/usb_gadget/g1
+    chown system system /config/usb_gadget/g1/UDC
+    chown system system /config/usb_gadget/g1/bDeviceClass
+    chown system system /config/usb_gadget/g1/bDeviceProtocol
+    chown system system /config/usb_gadget/g1/bDeviceSubClass
+    chown system system /config/usb_gadget/g1/configs
+    chown system system /config/usb_gadget/g1/configs/b.1
+    chown system system /config/usb_gadget/g1/functions
+    chown system system /config/usb_gadget/g1/idProduct
+    chown system system /config/usb_gadget/g1/idVendor
+    chown system system /config/usb_gadget/g1/os_desc
+    chown system system /config/usb_gadget/g1/os_desc/use
+
+    setprop sys.usb.configfs 2
+
 on boot
-    setprop sys.usb.configfs 1
-    start vendor.usb-gadget-hal
     setprop sys.usb.ffs.aio_compat 0
     setprop sys.usb.controller "musb-hdrc"
     setprop vendor.usb.controller "musb-hdrc"
@@ -54,6 +73,7 @@ on boot
     setprop vendor.usb.acm_port0 ""
     setprop vendor.usb.acm_port1 ""
     setprop vendor.usb.acm_enable 0
+    start vendor.usb-gadget-hal
     write /sys/class/android_usb/android0/f_mtp/cpu_mask 0xF0
 
     chown radio system /sys/class/usb_rawbulk/data/enable
@@ -77,6 +97,9 @@ on boot
 
     # for usb otg sdcard hot plug detection
     write /sys/module/block/parameters/events_dfl_poll_msecs 1000
+
+on property:sys.usb.config=adb && property:sys.usb.configfs=2
+    start adbd
 
 on post-fs-data
     mkdir /config/usb_gadget/g1/functions/via_modem.gs0
