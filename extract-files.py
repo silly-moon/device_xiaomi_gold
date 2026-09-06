@@ -30,6 +30,12 @@ blob_fixups: blob_fixups_user_type = {
             b'fingerprint\x00\x00\x00\x00\x00',
         ),
 
+    'vendor/lib64/hw/fingerprint.goodix.default.so': blob_fixup()
+        .binary_regex_replace(
+            br'fingerprint\.goodix\x00',
+            b'fingerprint\x00\x00\x00\x00\x00\x00\x00\x00',
+        ),
+
     'vendor/lib64/libgoodixhwfingerprint.so': blob_fixup()
         .replace_needed('libvendor.xiaomi.hardware.fx.tunnel@1.0.so', 'vendor.xiaomi.hardware.fx.tunnel@1.0.so'),
 
