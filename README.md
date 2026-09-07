@@ -11,14 +11,15 @@ Things working:
 - Camera
 - Fingerprint
 - IR and other sensors
-
+- VoLTE, VoNR, NFC
+  
 Not working:
 - Tethering malfunctions if you try to tether on a certain wireless frequency and using Wifi on another (e.g. tether 2.4ghz with a 5ghz wifi network connected)
 - Offline charging
 
 Notes:
 - Tested on gold (china), things may or may not work on global (iron) or other variants
-- VoLTE, NFC, ultrawide camera not tested.
+- ultrawide camera not tested.
 - TODO add props for the other variants
 
 ## Credits
