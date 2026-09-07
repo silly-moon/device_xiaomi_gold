@@ -1,6 +1,7 @@
 # Redmi Note 13 5G/13R Pro/POCO X6 Neo 5G (gold/iron) Device Tree
 
-Device tree for Lineage 23.2, which I'm using as a daily driver.
+Device tree for LunarisAOSP
+make sure to add you Maintainer Tag in product.prop
 
 Things working:
 - Wifi
