@@ -1,7 +1,11 @@
 # Redmi Note 13 5G/13R Pro/POCO X6 Neo 5G (gold/iron) Device Tree
 
 Device tree for LunarisAOSP
-make sure to add you Maintainer Tag in product.prop
+use these for vendor and prebuilt kernel
+- https://github.com/Dhterech/android_vendor_xiaomi_gold
+- https://github.com/Dhterech/android_kernel_xiaomi_gold
+  
+Make sure to add your **Maintainer Tag** in product.prop
 
 Things working:
 - Wifi
