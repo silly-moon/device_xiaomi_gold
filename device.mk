@@ -5,6 +5,8 @@
 
 DEVICE_PATH := device/xiaomi/gold
 
+#PRODUCT_MANIFEST_TYPE := framework
+
 # Keep authentication out of the way while the new firmware is being brought up.
 WITH_ADB_INSECURE := true
 
@@ -35,6 +37,7 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 # Dynamic Partitions
 PRODUCT_BUILD_SUPER_PARTITION := false
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
+BOARD_USES_SYSTEM_DLKM := true
 
 # Virtual A/B
 PRODUCT_PACKAGES += \
@@ -335,3 +338,9 @@ PRODUCT_COPY_FILES += \
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/xiaomi/gold/gold-vendor.mk)
+
+# Set global incremental build version across all generated partitions
+PRODUCT_BUILD_VERSION_INCREMENTAL := OS3.0.5.0.VNQMIXM
+
+# Include intermediate property layout bridge
+include device/xiaomi/gold/ota_bridge.mk

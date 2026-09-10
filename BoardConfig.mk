@@ -86,6 +86,8 @@ BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)-kernel/dtbo.img
 BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)-kernel/dtb
 BOARD_PREBUILT_SYSTEM_DLKMIMAGE := $(DEVICE_PATH)-kernel/system_dlkm.img
 
+BOARD_USES_SYSTEM_DLKM := true
+
 # These optional MIUI scheduling modules were built for 6.6.30 and are rejected
 # by the 6.6.118 kernel. Binder itself is provided by GKI; binder_prio remains.
 GOLD_INCOMPATIBLE_VENDOR_KERNEL_MODULES := \
@@ -135,6 +137,8 @@ BOARD_SYSTEM_DLKMIMAGE_FILE_SYSTEM_TYPE := erofs
 BOARD_VENDOR_DLKMIMAGE_FILE_SYSTEM_TYPE := erofs
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := erofs
 
+BOARD_SYSTEM_DLKMIMAGE_PARTITION_SIZE := 209715200
+
 BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -176,6 +180,7 @@ VENDOR_SECURITY_PATCH := 2026-02-01
 # vintf
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
+#DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
     hardware/xiaomi/vintf/xiaomi_framework_compatibility_matrix.xml \
     hardware/mediatek/vintf/mediatek_framework_compatibility_matrix.xml
@@ -228,3 +233,16 @@ BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX_LOCATION := 3
 
 # Inherit the proprietary files
 include vendor/xiaomi/gold/BoardConfigVendor.mk
+
+BOARD_USES_SYSTEM_DLKMIMAGE := true
+BOARD_USES_VENDOR_DLKMIMAGE := true
+BOARD_BUILD_SYSTEM_DLKM_IMAGE := true
+BOARD_BUILD_VENDOR_DLKM_IMAGE := true
+
+# Point these to the dummy structural template file we just created
+TARGET_SYSTEM_DLKM_PROP := device/xiaomi/gold/prop/dlkm_dummy.prop
+TARGET_VENDOR_DLKM_PROP := device/xiaomi/gold/prop/dlkm_dummy.prop
+
+# Fallback path mapping assignments for custom image packing
+INSTALLED_SYSTEM_DLKMIMAGE_TARGET := $(PRODUCT_OUT)/system_dlkm.img
+INSTALLED_VENDOR_DLKMIMAGE_TARGET := $(PRODUCT_OUT)/vendor_dlkm.img

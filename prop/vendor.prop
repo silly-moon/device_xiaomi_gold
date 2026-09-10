@@ -298,3 +298,4 @@ wifi.supplicant_scan_interval=120
 
 # Zygote
 zygote.critical_window.minute=10
+#ro.build.version.incremental=1789007028

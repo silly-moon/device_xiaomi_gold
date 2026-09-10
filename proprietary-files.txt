@@ -1638,7 +1638,7 @@ vendor/lib64/libfgauge_gm30.so
 # Gatekeeper
 vendor/bin/hw/android.hardware.gatekeeper-service.mitee
 vendor/etc/init/android.hardware.gatekeeper-service.mitee.rc
-vendor/etc/vintf/manifest/android.hardware.gatekeeper-service.mitee.xml
+#vendor/etc/vintf/manifest/android.hardware.gatekeeper-service.mitee.xml
 
 # GNSS
 vendor/bin/hw/android.hardware.gnss-service.mediatek
@@ -1646,7 +1646,7 @@ vendor/bin/mnld
 vendor/bin/mtk_agpsd
 vendor/etc/init/android.hardware.gnss-service.mediatek.rc
 vendor/etc/init/mtk_agpsd_p.rc
-vendor/etc/vintf/manifest/gnss-default.xml:vendor/etc/vintf/manifest/nss-mtk.xml
+#vendor/etc/vintf/manifest/gnss-default.xml:vendor/etc/vintf/manifest/nss-mtk.xml
 vendor/lib64/hw/android.hardware.gnss-impl-mediatek.so
 vendor/lib64/hw/vendor.mediatek.hardware.gnss-impl.so
 vendor/lib64/hw/gps.default.so
@@ -1689,7 +1689,7 @@ vendor/etc/init/android.hardware.graphics.allocator-V2-service-mediatek.rc
 vendor/etc/init/android.hardware.graphics.composer@3.3-service.rc
 vendor/etc/init/display.rc
 vendor/etc/mali_platform.config
-vendor/etc/vintf/manifest/mapper.mediatek.xml
+#vendor/etc/vintf/manifest/mapper.mediatek.xml
 vendor/lib/libged.so
 vendor/lib/libgralloc_extra.so
 vendor/lib/libion_mtk.so
@@ -1741,9 +1741,9 @@ vendor/lib64/vendor.mediatek.hardware.composer_ext@1.0.so
 system/lib64/android.hardware.security.keymint-V3-ndk.so:vendor/lib64/android.hardware.security.keymint-V3-ndk-prebuilt.so;FIX_SONAME
 vendor/bin/hw/android.hardware.security.keymint@3.0-service.mitee
 vendor/etc/init/android.hardware.security.keymint.mitee@3.0-service.rc
-vendor/etc/vintf/manifest/android.hardware.security.keymint-service.mitee.xml
-vendor/etc/vintf/manifest/android.hardware.security.secureclock-service.mitee.xml
-vendor/etc/vintf/manifest/android.hardware.security.sharedsecret-service.mitee.xml
+#vendor/etc/vintf/manifest/android.hardware.security.keymint-service.mitee.xml
+#vendor/etc/vintf/manifest/android.hardware.security.secureclock-service.mitee.xml
+#vendor/etc/vintf/manifest/android.hardware.security.sharedsecret-service.mitee.xml
 
 # Picture Quality
 vendor/bin/hw/vendor.mediatek.hardware.pq_aidl-service
@@ -1806,7 +1806,7 @@ vendor/bin/hw/android.hardware.media.c2-mediatek-64b:vendor/bin/hw/android.hardw
 vendor/etc/init/android.hardware.media.c2-mediatek.rc
 vendor/etc/seccomp_policy/android.hardware.media.c2@1.2-extended-seccomp-policy
 vendor/etc/seccomp_policy/android.hardware.media.c2@1.2-mediatek-seccomp-policy
-vendor/etc/vintf/manifest/manifest_media_c2_default.xml
+#vendor/etc/vintf/manifest/manifest_media_c2_default.xml
 vendor/lib/libcodec2_fsr.so
 vendor/lib/libcodec2_vpp_fa_plugin.so
 vendor/lib/libcodec2_vpp_mi_plugin.so
